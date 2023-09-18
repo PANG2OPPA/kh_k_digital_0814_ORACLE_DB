@@ -4,7 +4,7 @@ FROM EMP;
 
 SELECT *
 FROM EMP
-WHERE UPPER(ENAME) * UPPER('james');
+WHERE UPPER(ENAME) = UPPER('james');
 
 -- LENGTH : 문자열 길이를 반환
 -- LENGTHB : 문자열의 바이트 수 반환
@@ -13,7 +13,7 @@ FROM DUAL;
 
 -- SUBSTR / SUBSTRB
 -- 데이터베이스 시작위치가 0이 아님, 3번째 매개변수를 생략하면 끝까지
-SELECT JOB, SUBSTR(JOB, 1, 2), SUBSTR(JOB, 3, 2), SUBSTR(JOB, 5)
+SELECT JOB, SUBSTR(JOB, 1, 2), SUBSTR(JOB, 3, 2), SUBSTRB(JOB, 5)
 FROM EMP;
 
 SELECT JOB,
@@ -22,7 +22,7 @@ SELECT JOB,
     SUBSTR(JOB, -3)
     FROM EMP;
 
--- INSTR : 문자열  데이터 안에 특정 문자나 측정 문자열이 어디에 포함되어 있는지 알고자 할 때 사용
+-- INSTR : 문자열  데이터 안에 특정 문자나 정 문자열이 어디에 포함되어 있는지 알고자 할 때 사용
 SELECT INSTR('HELLO ,ORACLE', 'L') AS INSTR_1,
          INSTR('HELLO, ORACLE', 'L', 5) AS INSTR_2, -- 세번째 인자로 찾을 시작위치 지정
          INSTR('HELLO, ORACLE', 'L', 2, 2) AS INSTR_2 -- 3번쨰 인자는 시작위치, 4번째 인자는 몇번째
